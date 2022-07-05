@@ -117,7 +117,8 @@ def mask(id):
 
 def insertData(id, name, dep):
     mask(id)  # call window
-    ent_id.insert(0, 'Generated automatically')  # insert all the info already typed.
+    # insert all the info already typed.
+    ent_id.insert(0, 'Generated automatically')
     ent_id.configure(state='readonly', readonlybackground=bg, fg='Grey')
 
     ent_name.insert(0, name)
@@ -238,7 +239,8 @@ def getData(id):
 
 def deleteData(id, name, dep):
     if id == '' or name == '' or dep == 0:
-        messagebox.showerror('Specify Employee', 'Specify an employee to delete')
+        messagebox.showerror('Specify Employee',
+                             'Specify an employee to delete')
         return
     yn = messagebox.askquestion(
         'Delete Employee?', f'Are you sure you want to delete\nemployee {name} from {dep}?')
@@ -313,7 +315,8 @@ def fill_dep(x):
 
 
 def listbox_choose(x):
-    index = show_data.curselection()[0]  # Getting the index of the double clicked listing
+    # Getting the index of the double clicked listing
+    index = show_data.curselection()[0]
     emp = result[index]  # Getting the actual listing
 
     enter_id.delete(0, 'end')  # Deleting, then filling the ID-Field
@@ -369,7 +372,8 @@ def theme():
             i.configure(bg=ac_d,
                         fg=color_font_d)
         reset_btn.configure(bg=ac_d)
-        image = picture('https://picsum.photos/610/100?grayscale.jpg', 'dark.jpg')
+        image = picture(
+            'https://picsum.photos/610/100?grayscale.jpg', 'dark.jpg')
         pici.configure(image=image)
         pici.image = image
         return
@@ -471,8 +475,9 @@ if __name__ == '__main__':
                  padx=10)
 
     # Create buttons (first row)
+    image_insert = PhotoImage(file='insert.png')
     insert_btn = Button(root,
-                        text='Insert',
+                        image=image_insert,
                         font=font,
                         bg=ac2_d,
                         command=lambda: insertData(enter_id.get(),
@@ -483,8 +488,9 @@ if __name__ == '__main__':
                                                      enter_name.get(),
                                                      enter_dep.get()))
 
+    image_update = PhotoImage(file='update.png')
     update_btn = Button(root,
-                        text='Update',
+                        image=image_update,
                         font=font,
                         bg=ac2_d,
                         command=lambda: updateData(enter_id.get(),
@@ -494,15 +500,18 @@ if __name__ == '__main__':
     update_btn.bind('<Return>', lambda x: updateData(enter_id.get(),  # This makes sure the enter key also does the function
                                                      enter_name.get(),
                                                      enter_dep.get()))
+    imate_get = PhotoImage(file='fetch.png')
     get_btn = Button(root,
-                     text='Fetch',
+                     image=imate_get,
                      font=font,
                      bg=green_d,
                      command=lambda: getData(enter_id.get())
                      )
     get_btn.bind('<Return>', lambda x: getData(enter_id.get()))
+
+    image_delete = PhotoImage(file='delete.png')
     delete_btn = Button(root,
-                        text='Delete',
+                        image=image_delete,
                         font=font,
                         bg=red_d,
                         command=lambda: deleteData(enter_id.get(),
@@ -514,6 +523,7 @@ if __name__ == '__main__':
                                                      enter_dep.get()))
     # Place buttons
     for idx, val in enumerate([insert_btn, update_btn, get_btn, delete_btn]):
+        val.configure(bg=bg_d, borderwidth=0)
         val.grid(column=idx+1,
                  row=4,
                  padx=10,
