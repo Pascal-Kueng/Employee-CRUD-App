@@ -14,4 +14,4 @@ To search by name or department, simply start typing the information into the ap
 ## Other functionality
 **You must first select an employee by using one of the methods mentioned above.** Then, you may use "Fetch" for more Infos, "Update" to change infos, or "Delete". 
 You may switch between light and dark theme. Every time the App loads or switches themes, a new random image from the Lorem Pixum API (https://picsum.photos/) will be loaded. 
-If internet is not available, it will use the two backup images in the folder. 
+If internet is not available, it will use the two backup images in the folder ("dark.png", "light.png"). 
