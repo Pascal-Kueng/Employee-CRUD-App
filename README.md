@@ -1,10 +1,10 @@
 # Employee-CRUD-App
 
 This was one of my first projects after learning the basics of Python. 
-Here I used Tkinter and SQL to create a GUI to manage a database of people one can enter. 
+I used this project to learn Tkinter and SQL and created a GUI to manage a database of employee. 
 
 ## Setup
-When opening the App for the first time, simply click on "Insert" (optionally already fill out the fields for "Employee Name" and "Department" beforehand.
+When opening the App for the first time, simply click on "Insert" (optionally you may already fill out the fields for "Employee Name" and "Department" beforehand).
 An SQL Database in the folder of the scipts will be created. 
 
 ## Search Employees
